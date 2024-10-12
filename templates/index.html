@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>💬 Personal Assistant</title>
+    <style>
+        /* Add your CSS styles here */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0; /* Light background */
+            margin: 0;
+            padding: 20px;
+            height: 100vh; /* Full height */
+            overflow: auto; /* Allow scrolling */
+        }
+
+        .container {
+            max-width: 400px; /* Fixed width for the container */
+            width: 100%; /* Full width */
+            background: #2c2c2c; /* Dark background */
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            position: fixed; /* Fixed positioning */
+            bottom: 20px; /* Distance from bottom */
+            right: 20px; /* Distance from right */
+            z-index: 1000; /* Above other content */
+            display: none; /* Initially hidden */
+        }
+
+        h1 {
+            text-align: center;
+            color: #f0f0f0; /* Light text color */
+        }
+
+        .chat-box {
+            border: 1px solid #444; /* Darker border */
+            border-radius: 5px;
+            height: 400px; /* Increased height */
+            overflow-y: auto;
+            padding: 10px;
+            margin-bottom: 10px;
+            background-color: #3a3a3a; /* Dark chat box background */
+        }
+
+        .message {
+            margin: 10px 0;
+        }
+
+        .bubble {
+            display: inline-block;
+            padding: 10px;
+            border-radius: 10px;
+            max-width: 80%;
+        }
+
+        .user .bubble {
+            background-color: #007bff; /* User message background */
+            margin-left: auto;
+            color: white; /* User text color */
+        }
+
+        .assistant .bubble {
+            background-color: #444; /* Assistant message background */
+            margin-right: auto;
+            color: #f0f0f0; /* Assistant text color */
+        }
+
+        .input-box {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        #user-input {
+            flex: 1;
+            padding: 10px;
+            border: 1px solid #666; /* Dark border */
+            border-radius: 5px;
+            margin-right: 10px;
+            background-color: #3a3a3a; /* Dark input background */
+            color: #f0f0f0; /* Light text color */
+        }
+
+        button {
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #007bff; /* Button color */
+            color: white;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #4f4f4f; /* Darker button color on hover */
+        }
+
+        .chat-icon {
+            position: fixed;
+            bottom: 20px; /* Distance from bottom */
+            right: 20px; /* Distance from right */
+            background-color: #007bff; /* Chat icon background color */
+            border-radius: 50%; /* Circular shape */
+            width: 60px; /* Width */
+            height: 60px; /* Height */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-size: 24px; /* Icon size */
+            cursor: pointer;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Shadow */
+            z-index: 1000; /* Above other content */
+        }
+
+        .chat-icon:hover {
+            transform: scale(1.3);
+        } 
+        
+        .close-button {
+            background: none; 
+            border: none; 
+            color: #fdfdfd; 
+            cursor: pointer; 
+            font-size: 20px; 
+            position: absolute; 
+            right: 15px; 
+            top: 5px; 
+            font-weight: bold;
+            transition: transform 0.2s; 
+        }
+
+        .close-button:hover {
+            transform: scale(1.2); 
+            color: #fcfcfc; 
+        }
+        #chatbot-overview {
+    background-color: #ffffff; /* White background for readability */
+    padding: 20px;
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    margin: 20px auto; /* Center the section */
+    max-width: 800px; /* Limit the width */
+}
+
+h2, h3 {
+    color: #2c2c2c; /* Dark color for headings */
+}
+
+ul {
+    list-style-type: disc; /* Bullet points for lists */
+    padding-left: 20px; /* Indent list */
+}
+
+p {
+    line-height: 1.6; /* Improve readability */
+}
+
+    </style>
+</head>
+
+<body>
+    <div class="web"><section id="chatbot-overview">
+        <h2>About the Educational Chatbot</h2>
+        <p>Our Educational Chatbot is designed to assist users in their learning journey by providing quick answers to various educational queries. It is powered by advanced natural language processing algorithms, making it capable of understanding and responding to user questions effectively.</p>
+    
+        <h3>Key Features</h3>
+        <ul>
+            <li><strong>Instant Responses:</strong> Get immediate answers to your questions, helping you learn without delay.</li>
+            <li><strong>User-Friendly Interface:</strong> A clean and intuitive interface that makes it easy for users of all ages to interact with the chatbot.</li>
+            <li><strong>Educational Resources:</strong> Access a wealth of information on a variety of topics, including math, science, history, and language arts.</li>
+            <li><strong>24/7 Availability:</strong> Available at any time, allowing users to learn and get help whenever they need it.</li>
+            <li><strong>Personalized Learning:</strong> Tailors responses based on user input, making the learning experience more relevant and engaging.</li>
+        </ul>
+    
+        <h3>What the Chatbot Can Do</h3>
+        <p>The chatbot can assist users in various ways, including:</p>
+        <ul>
+            <li>Answering educational questions and providing explanations on complex topics.</li>
+            <li>Helping with homework and study materials.</li>
+            <li>Offering practice questions and quizzes to reinforce learning.</li>
+            <li>Providing tips and resources for effective studying and learning strategies.</li>
+            <li>Facilitating discussions on educational trends and news.</li>
+        </ul>
+    
+        <h3>Use Cases</h3>
+        <p>Here are some practical applications of the educational chatbot:</p>
+        <ul>
+            <li><strong>Students:</strong> Get instant help with homework, concepts, and study resources.</li>
+            <li><strong>Teachers:</strong> Use the chatbot as a supplementary tool for classroom discussions and to assist students with inquiries.</li>
+            <li><strong>Parents:</strong> Leverage the chatbot for guidance in supporting their children’s education.</li>
+            <li><strong>Lifelong Learners:</strong> Access a variety of topics for personal growth and continuous education.</li>
+        </ul>
+    
+        <h3>Conclusion</h3>
+        <p>Our Educational Chatbot is an invaluable tool for anyone looking to enhance their learning experience. With its ability to provide quick, accurate, and personalized responses, it empowers users to take charge of their education anytime and anywhere.</p>
+    </section>
+    </div>
+    <div class="chat-icon" id="chat-icon" onclick="toggleChat()">💬</div>
+    <div class="container" id="chat-container">
+        <button class="close-button" onclick="closeChat()">✖</button>
+        <h1>💬 Personal Assistant</h1>
+        <div class="chat-box" id="chat-box"></div>
+        
+        <div class="input-box">
+            <input type="text" id="user-input" placeholder="Ask me anything!" onkeypress="checkEnter(event)" />
+            <button onclick="sendMessage()">Send</button>
+        </div>
+    </div>
+
+    <script>
+        function toggleChat() {
+            const chatContainer = document.getElementById("chat-container");
+            const chatIcon = document.getElementById("chat-icon");
+
+            if (chatContainer.style.display === "none" || chatContainer.style.display === "") {
+                chatContainer.style.display = "block"; // Show chat container
+                chatIcon.style.display = "none"; // Hide chat icon
+            } else {
+                chatContainer.style.display = "none"; // Hide chat container
+                chatIcon.style.display = "flex"; // Show chat icon
+            }
+        }
+
+        function closeChat() {
+            const chatContainer = document.getElementById("chat-container");
+            const chatIcon = document.getElementById("chat-icon");
+            chatContainer.style.display = "none"; // Hide chat container
+            chatIcon.style.display = "flex"; // Show chat icon
+        }
+
+        async function sendMessage() {
+            const userInput = document.getElementById("user-input").value;
+            if (!userInput) return;
+
+            // Display user message
+            const chatBox = document.getElementById("chat-box");
+            chatBox.innerHTML += `<div class="message user"><div class="bubble">${userInput}</div></div>`;
+            document.getElementById("user-input").value = '';
+
+            // Send the user input to the server
+            const response = await fetch('/ask', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+                body: `user_input=${encodeURIComponent(userInput)}`
+            });
+
+            const data = await response.json();
+            // Display chatbot response
+            chatBox.innerHTML += `<div class="message assistant"><div class="bubble">${data.response}</div></div>`;
+            chatBox.scrollTop = chatBox.scrollHeight; // Scroll to bottom
+        }
+
+        function checkEnter(event) {
+            if (event.key === 'Enter') {
+                sendMessage();
+            }
+        }
+    </script>
+</body>
+</html>
