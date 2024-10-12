@@ -1,5 +1,4 @@
-
-<h1> Personal Assistant with Langchain and LLaMA<h1
+Personal Assistant with Langchain and LLaMA
 
 Project Description
 
