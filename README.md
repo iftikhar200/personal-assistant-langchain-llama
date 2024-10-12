@@ -1,8 +1,5 @@
-Here's a structured outline and some content you can use to write your README.md for your personal assistant project with Langchain and LLaMA:
 
----
-
-Personal Assistant with Langchain and LLaMA
+h1 Personal Assistant with Langchain and LLaMA
 
 Project Description
 
